@@ -1,4 +1,4 @@
-const UserCard = ({ user, deleteUser, setInfoUpdate }) => {
+const UserCard = ({ user, deleteUser, setInfoUpdate, handleOpenForm }) => {
 
   const handleDelete = () => {
     deleteUser('/users', user.id)
@@ -6,15 +6,16 @@ const UserCard = ({ user, deleteUser, setInfoUpdate }) => {
 
   const handleEdit = () => {
     setInfoUpdate(user)
+    handleOpenForm()
   }
 
 
   return (
    <article className="card">
-    <h3 className="card__title">#{`${user.id} ${user.first_name} ${user.last_name}`}</h3>
+    <h3 className="card__title">{`${user.first_name} ${user.last_name}`}</h3>
     <ul className="card__list">
       <li className="card__list__item"><span className="card__item__label">Email</span><span className="card__item__value">{user.email}</span></li>
-      <li className="card__list__item"><span className="card__item__label">Birthday</span><span className="card__item__value">{user.birthday}</span></li>
+      <li className="card__list__item"><span className="card__item__label">Birthday</span><span className="card__item__value"><box-icon name='gift' type='solid' color='#f4f4f4'></box-icon> {user.birthday}</span></li>
     </ul>
     <div className="buttons__container">
       <button className="card__button__delete" onClick={handleDelete}><img className="icon" src="../../public/img/delete_icon.png" alt="" /></button>

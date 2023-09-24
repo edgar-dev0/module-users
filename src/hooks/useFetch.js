@@ -1,7 +1,8 @@
 import axios from "axios"
 import { useState } from "react"
 
-const useFetch = (baseUrl) => {
+//el argumento callback sera utilizado para enviar como argumento el estado setCloseForm para poder controlar el cierre del modal
+const useFetch = (baseUrl, callback ) => {
 
   const [infoApi, setInfoApi] = useState()
 
@@ -20,6 +21,7 @@ const useFetch = (baseUrl) => {
     .then(res => {
       console.log(res.data)
       setInfoApi([...infoApi, res.data])
+      callback(true)
     })
     .catch(err => console.log(err))
   }
@@ -31,6 +33,7 @@ const useFetch = (baseUrl) => {
     .then(res => {
       console.log(res.data)
       setInfoApi(infoApi.filter(e => e.id !== id))
+      callback()
     })
     .catch(err => console.log(err))
   }
@@ -42,6 +45,7 @@ const useFetch = (baseUrl) => {
     .then(res => {
       console.log(res.data)
       setInfoApi(infoApi.map(e => e.id === id ? res.data : e))
+      callback(true)
     })
     .catch(err => console.log(err))
   }
