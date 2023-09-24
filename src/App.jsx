@@ -26,7 +26,7 @@ function App() {
     <div>
       <header className='header__container'>
         <h1>Users</h1>
-        <button onClick={handleOpenForm} className='header__container__button'><img className="icon" src="../../public/img/plus_icon.png" alt="" /><span> Add new user</span></button>
+        <button onClick={handleOpenForm} className='header__container__button'><img className="icon" src="../public/img/plus_icon.png" alt="" /><span> Add new user</span></button>
       </header>
       <hr />
       <FormUser
