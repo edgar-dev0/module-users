@@ -33,7 +33,6 @@ const useFetch = (baseUrl, callback ) => {
     .then(res => {
       console.log(res.data)
       setInfoApi(infoApi.filter(e => e.id !== id))
-      callback()
     })
     .catch(err => console.log(err))
   }
