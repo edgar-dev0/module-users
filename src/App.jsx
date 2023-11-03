@@ -13,7 +13,8 @@ function App() {
     setCloseForm(false)
   }
 
-  const baseUrl = 'https://users-crud.academlo.tech'
+  const baseUrl = 'https://users-app-dev-nxfn.2.us-1.fl0.io'
+  //const baseUrl = 'http://localhost:8080'
   const [ users, getUsers, createUser, deleteUser, updateUser ] = useFetch(baseUrl, setCloseForm)
 
   useEffect(() => {
